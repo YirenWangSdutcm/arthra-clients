@@ -1,5 +1,7 @@
 name: ARTHRA
 options:
+  projectFormat: xcode15_3
+  xcodeVersion: '15.4'
   bundleIdPrefix: org.arthra
 settings:
   base:
