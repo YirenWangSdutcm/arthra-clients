@@ -1,0 +1,33 @@
+name: ARTHRA
+options:
+  bundleIdPrefix: org.arthra
+settings:
+  base:
+    SWIFT_VERSION: '5.0'
+    MARKETING_VERSION: '0.5.0'
+    CURRENT_PROJECT_VERSION: '5'
+    GENERATE_INFOPLIST_FILE: YES
+    INFOPLIST_KEY_CFBundleDisplayName: ARTHRA
+targets:
+  ARTHRA-macOS:
+    type: application
+    platform: macOS
+    deploymentTarget: '13.0'
+    sources: [Sources]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: org.arthra.clinical.mac
+        ENABLE_HARDENED_RUNTIME: YES
+        CODE_SIGN_STYLE: Automatic
+  ARTHRA-iOS:
+    type: application
+    platform: iOS
+    deploymentTarget: '16.0'
+    sources: [Sources]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: org.arthra.clinical.ios
+        TARGETED_DEVICE_FAMILY: '1,2'
+        CODE_SIGN_STYLE: Automatic
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_UIApplicationSceneManifest_Generation: YES

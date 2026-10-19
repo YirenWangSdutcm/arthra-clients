@@ -1,0 +1,37 @@
+name: Build ARTHRA clients
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  android:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.11.1'
+      - run: gradle -p android assembleDebug
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ARTHRA-Android-internal-preview
+          path: android/app/build/outputs/apk/debug/*.apk
+  apple-validation:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+      - run: brew install xcodegen
+      - run: cd apple && xcodegen generate
+      - run: xcodebuild -project apple/ARTHRA.xcodeproj -scheme ARTHRA-macOS -configuration Release -derivedDataPath build/macos CODE_SIGNING_ALLOWED=NO ARCHS='arm64 x86_64' build
+      - run: ditto -c -k --keepParent build/macos/Build/Products/Release/ARTHRA-macOS.app build/ARTHRA-macOS-unsigned.zip
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ARTHRA-macOS-unsigned-validation
+          path: build/ARTHRA-macOS-unsigned.zip
+      - run: xcodebuild -project apple/ARTHRA.xcodeproj -scheme ARTHRA-iOS -configuration Debug -sdk iphonesimulator -destination 'generic/platform=iOS Simulator' -derivedDataPath build/ios CODE_SIGNING_ALLOWED=NO build
