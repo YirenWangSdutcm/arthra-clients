@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">ARTHRA</title>
+  <desc id="desc">A sculpted knee joint within a precise imaging frame, connected by three computational nodes.</desc>
+  <defs>
+    <linearGradient id="field" x1="9" y1="5" x2="74" y2="79" gradientUnits="userSpaceOnUse"><stop stop-color="#263C43"/><stop offset="1" stop-color="#111F2B"/></linearGradient>
+    <linearGradient id="bone" x1="25" y1="18" x2="54" y2="63" gradientUnits="userSpaceOnUse"><stop stop-color="#E0E4D7"/><stop offset=".52" stop-color="#A7BFB3"/><stop offset="1" stop-color="#7F9EA7"/></linearGradient>
+    <linearGradient id="edge" x1="7" y1="4" x2="72" y2="77" gradientUnits="userSpaceOnUse"><stop stop-color="#8BA49B" stop-opacity=".7"/><stop offset="1" stop-color="#8BA49B" stop-opacity=".12"/></linearGradient>
+  </defs>
+  <rect x="1" y="1" width="78" height="78" rx="23" fill="url(#field)" stroke="url(#edge)"/>
+  <path d="M18 28v-8a2 2 0 0 1 2-2h8M52 18h8a2 2 0 0 1 2 2v8M62 52v8a2 2 0 0 1-2 2h-8M28 62h-8a2 2 0 0 1-2-2v-8" stroke="#91A9A4" stroke-opacity=".55" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M34 18h12v10c0 3 2 5 5 8 2 2 3 4 2 7-1 3-5 4-8 2l-5-3-5 3c-3 2-7 1-8-2-1-3 0-5 2-7 3-3 5-5 5-8V18Z" fill="url(#bone)"/>
+  <path d="M27 49c4-1 8-1 13 1 5-2 9-2 13-1l-3 7c-1 2-4 3-5 6H35c-1-3-4-4-5-6l-3-7Z" fill="url(#bone)"/>
+  <path d="M33 38c2-3 3-6 3-10M33 53l3 3" stroke="#F2F2E8" stroke-opacity=".45" stroke-width="1.3" stroke-linecap="round"/>
+  <path d="m61 33 6 7-6 7" stroke="#BBAF90" stroke-opacity=".7" stroke-width="1.1"/>
+  <circle cx="61" cy="33" r="2" fill="#C7B996"/><circle cx="67" cy="40" r="2" fill="#9BBAB7"/><circle cx="61" cy="47" r="2" fill="#C7B996"/>
+</svg>

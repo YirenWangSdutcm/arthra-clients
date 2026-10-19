@@ -1,0 +1,72 @@
+{
+  "record_date": "2026-10-19",
+  "model": {
+    "name": "KneeLite 2.5D U-Net",
+    "parameters": 274914,
+    "checkpoint_sha256": "e1dd479ffbcbc3cef2f28281bffd69e3a8c2981bbd96631c334fea2bcf5afac8",
+    "epochs": 24,
+    "train_cases": 32,
+    "validation_cases": 8,
+    "test_cases": 10,
+    "evaluation_grid": "192x192 working planes",
+    "mean_dice": 0.8998654143962175,
+    "case_bootstrap_95_ci": [
+      0.891200128139766,
+      0.9093114780422648
+    ],
+    "structures": {
+      "股骨": 0.9683499957687418,
+      "股骨软骨": 0.8564959470986186,
+      "胫骨": 0.9763433927989711,
+      "胫骨内侧软骨": 0.8445811376695083,
+      "胫骨外侧软骨": 0.853556598645247
+    }
+  },
+  "engineering": {
+    "local_automated_checks": 33,
+    "public_api_numerical_checks": 25,
+    "account_isolation_http_checks": "passed using temporary accounts and public inputs",
+    "native_ci_run": "https://github.com/YirenWangSdutcm/arthra-clients/actions/runs/39208979015"
+  },
+  "resource_profile": {
+    "case": "oaizib_453",
+    "native_shape": [
+      160,
+      384,
+      384
+    ],
+    "working_shape": [
+      160,
+      192,
+      192
+    ],
+    "torch_threads": 4,
+    "stages": [
+      {
+        "stage": "bone_prediction",
+        "seconds": 3.052,
+        "rss_mb": 440.2
+      },
+      {
+        "stage": "muscle_prediction",
+        "seconds": 19.308,
+        "rss_mb": 465.0
+      },
+      {
+        "stage": "muscle_quantification",
+        "seconds": 7.358,
+        "rss_mb": 465.6
+      }
+    ],
+    "muscle_count": 16,
+    "peak_process_tree_rss_mb": 713.3,
+    "total_seconds": 33.519,
+    "samples": 306,
+    "host_logical_cpus": 16,
+    "host_memory_gb": 61.8,
+    "scope": "One public knee MRI, sequential bone + muscle inference; not a concurrency or maximum-size upload stress test"
+  },
+  "scope": "Project-generated local research evaluation. Not clinical validation, diagnostic accuracy or a cloud throughput guarantee.",
+  "muscle_accuracy": "No matched manual muscle references in current local evaluation",
+  "data_source": "https://zenodo.org/records/14934086"
+}
